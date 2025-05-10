@@ -49,7 +49,7 @@ resource "docker_container" "traefik_container" {
   }
   volumes {
     volume_name = docker_volume.traefik_acme.name
-    from_container = "/letsencrypt"
+    container_path = "/letsencrypt"
   }
   labels {
     label = "traefik.http.routers.traefik.rule"
