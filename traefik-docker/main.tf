@@ -48,7 +48,7 @@ resource "docker_container" "traefik_container" {
     container_path = "/var/run/docker.sock"
   }
   volumes {
-    volume_name = "traefik_acme"
+    volume_name = docker_volume.traefik_acme.name
     from_container = "/letsencrypt"
   }
   labels {
@@ -63,4 +63,8 @@ resource "docker_container" "traefik_container" {
   networks_advanced {
     name = docker_network.traefik.name
   }
+}
+
+resource "docker_volume" "traefik_acme" {
+  name = "traefik_acme"
 }
