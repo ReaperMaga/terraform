@@ -7,11 +7,6 @@ terraform {
   }
 }
 
-provider "docker" {
-  host = var.docker_host
-  key_material = var.docker_ssh_key
-}
-
 resource "docker_network" "traefik" {
   name     = "traefik"
   internal = false
