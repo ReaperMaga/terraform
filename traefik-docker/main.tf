@@ -7,10 +7,6 @@ terraform {
   }
 }
 
-provider "docker" {
-  host = var.docker_host
-}
-
 resource "docker_network" "traefik" {
   name     = "traefik"
   internal = false
