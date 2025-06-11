@@ -81,6 +81,11 @@ resource "docker_container" "traefik_container" {
     value = "https"
   }
 
+  labels {
+    label = "traefik.enable"
+    value = "true"
+  }
+
   networks_advanced {
     name = docker_network.traefik.name
   }
