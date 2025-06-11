@@ -25,6 +25,11 @@ resource "docker_container" "traefik_container" {
     internal = 80
     external = 80
   }
+  
+  ports {
+    internal = 443
+    external = 443
+  }
   command = [
     "--api=true",
     "--api.dashboard=true",
