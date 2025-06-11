@@ -35,7 +35,7 @@ resource "docker_container" "traefik_container" {
     "--api.dashboard=true",
     "--providers.docker=true",
     "--entrypoints.http.address=:80",
-    "--entrypoints.http.address=:443",
+    "--entrypoints.https.address=:443",
 
     "--certificatesresolvers.letsencrypt.acme.dnschallenge.delaybeforecheck=0",
     "--certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare",
