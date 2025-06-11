@@ -65,6 +65,21 @@ resource "docker_container" "traefik_container" {
     value = "api@internal"
   }
 
+  labels {
+    label = "traefik.http.routers.traefik.tls.certresolver"
+    value = "letsencrypt"
+  }
+
+  labels {
+    label = "traefik.http.routers.traefik.tls"
+    value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.frontend.entrypoints"
+    value = "https"
+  }
+
   networks_advanced {
     name = docker_network.traefik.name
   }
